@@ -63,12 +63,20 @@
             <div class="container" ng-controller="TopicsCtrl">
                 <div class="row">
                     <div class="col-lg-12">
+                        <p></p>
+                        <div class="col-lg-3">
+                            <div class="list-group-item text-center">
+                                <form>
+                                    <input type="text" class="form-control" placeholder="Search..." ng-model="search">
+                                </form>
+                            </div>
+                         </div>
                         <h1 class="section-heading">Section Heading</h1>
                         <p class="lead section-lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
                         <h1>Index page</h1>
-                        <div ng-repeat="topic in topics">
-                            <p>{{ topic.name }}</p>
+                        <div ng-repeat="topic in topics | filter:search">
+                            <p>{{ topic.comments.length }}</p>
                         </div>
 
                     </div>

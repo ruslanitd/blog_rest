@@ -3,11 +3,9 @@
  */
 var blogApp = angular.module('blogApp', []);
 
-blogApp.controller('TopicsCtrl', function($scope) {
-    $scope.topics = [
-        {'name': "Test1"},
-        {'name': "Test2"},
-        {'name': "Test3"},
-        {'name': "Test4"},
-    ]
+blogApp.controller('TopicsCtrl', function($scope, $http) {
+    $http.get('http://127.0.0.1:8000/api/').success(function(data, status, headers, config){
+        $scope.topics = data;
+        console.log(data)
+    });
 })
